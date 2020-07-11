@@ -3,6 +3,9 @@ line = []
 for x in mapf:
     line.append(x)
 
+def searchcharacter():
+    
+
 def fromcoord(row, column):
     hslice1 = column - 10
     hslice2 = column + 10
