@@ -1,18 +1,18 @@
-def getmap():
-    mapf = open("map.txt", "r")
+def getmap(mapname):
+    mapf = open(mapname, "r")
     rows = []
     for x in mapf:
         rows.append(x)
     return rows
 
-def writetomap(rows):
-    mapf = open("map.txt", "w")
+def writetomap(mapname, rows):
+    mapf = open(mapname, "w")
     for x in rows:
         mapf.write(x)
     mapf.close()
 
 def fromcoord(row, column):
-    rows = getmap()
+    rows = getmap("map.txt")
     multiline = """"""
     hslice1 = column - 10
     hslice2 = column + 11
@@ -21,18 +21,18 @@ def fromcoord(row, column):
     for x in range(vslice1, vslice2):
         print(rows[x][hslice1:hslice2])
 
-def searchcharacter():
-    rows = getmap()
+def searchcharacter(mapname):
+    rows = getmap(mapname)
     for x in range(0,len(rows)):
         try:
             return x, rows[x].index("*")
         except:
             continue
 
-def getadjacents():
-    x = searchcharacter()[1]
-    y = searchcharacter()[0]
-    rows = getmap()
+def getadjacents(mapname):
+    x = searchcharacter(mapname)[1]
+    y = searchcharacter(mapname)[0]
+    rows = getmap(mapname)
     adjacents = []
     possiblex = [x-1, x, x+1]
     possibley = [y-1, y, y+1]
