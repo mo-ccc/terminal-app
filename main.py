@@ -1,21 +1,28 @@
 import user
 import fetch
-
-current_map = "map.txt"
+import json
 
 while True:
-    entry = input("input: ")
-    if entry == "quit":
+    sr = open("savedata.json", "r")
+    jreadsave = sr.read()
+    sr.close()
+    readsave = json.loads(jreadsave)
+    current_map = readsave["current_map"]
+    perid = user.userinput(current_map)  
+    if perid == 1:
+        if current_map == "map.txt":
+            diction = {"current_map":"cave.txt"}
+            sw = open("savedata.json", "w")
+            json.dump(diction, sw)
+            sw.close()
+        elif current_map == "cave.txt":
+            diction = {"current_map":"map.txt"}
+            sw = open("savedata.json", "w")
+            json.dump(diction, sw)
+            sw.close()
+    elif perid == 0:
         print("goodbye")
         break
-    user.userinput(entry, current_map)
-    if current_map == "map.txt":
-        if user.cave_entered == True:
-            current_map = "cave.txt"
-    elif current_map == "cave.txt":
-        if user.cave_exited == True:
-            current_map = "map.txt"
-    else:
-        current_map = "map.txt"
+        
 
     

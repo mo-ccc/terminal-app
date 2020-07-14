@@ -13,7 +13,6 @@ def writetomap(mapname, rows):
 
 def fromcoord(row, column):
     rows = getmap("map.txt")
-    multiline = """"""
     hslice1 = column - 10
     hslice2 = column + 11
     vslice1 = row - 3
