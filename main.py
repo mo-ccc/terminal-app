@@ -1,10 +1,12 @@
-import user
-import fetch
-import json
+import dependencies.user as user
+import dependencies.initialise as initialise
+import dependencies.fetch as fetch
 import os.path
-import initialise
+import time
+import json
 
 if os.path.isdir("./sav") == False:
+    time.sleep(1)
     print("no save data found. creating...")
     os.mkdir("./sav")
 if os.path.exists("./sav/cave.txt") == False:
@@ -14,6 +16,10 @@ if os.path.exists("./sav/main.txt") == False:
 if os.path.exists("./sav/savedata.json") == False:
     initialise.create_save()
 
+time.sleep(1)
+print("welcome to the game")
+time.sleep(1)
+
 while True:
     sr = open("./sav/savedata.json", "r")
     jreadsave = sr.read()
@@ -22,13 +28,13 @@ while True:
     current_map = readsave["current_map"]
     perid = user.userinput(current_map)  
     if perid == 1:
-        if current_map == "map.txt":
-            diction = {"current_map":"cave.txt"}
+        if current_map == "./sav/main.txt":
+            diction = {"current_map":"./sav/cave.txt"}
             sw = open("./sav/savedata.json", "w")
             json.dump(diction, sw)
             sw.close()
-        elif current_map == "cave.txt":
-            diction = {"current_map":"map.txt"}
+        elif current_map == "./sav/cave.txt":
+            diction = {"current_map":"./sav/main.txt"}
             sw = open("./sav/savedata.json", "w")
             json.dump(diction, sw)
             sw.close()

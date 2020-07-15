@@ -12,7 +12,7 @@ def writetomap(mapname, rows):
     mapf.close()
 
 def fromcoord(row, column):
-    rows = getmap("map.txt")
+    rows = getmap("./sav/main.txt")
     hslice1 = column - 10
     hslice2 = column + 11
     vslice1 = row - 3
@@ -38,7 +38,7 @@ def getadjacents(mapname):
     for a in possibley:
         for b in possiblex:
             adjacents.append(rows[a][b])
-    print(f"here are adjacents: {adjacents}")
+    return adjacents
 
 
 
