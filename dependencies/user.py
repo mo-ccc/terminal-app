@@ -98,5 +98,11 @@ input: """)
 
         elif entry[0] == "quit":
             return 0
+
+        elif entry[0] == "help":
+            helpfile = open("help.txt", "r")
+            print(helpfile.read())
+            helpfile.close()
+
         else:
             return

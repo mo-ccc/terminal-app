@@ -15,7 +15,7 @@ if os.path.exists("./sav/main.txt") == False:
     initialise.create_main()
 if os.path.exists("./sav/savedata.json") == False:
     initialise.create_save()
-id os.path.exists("help.txt") == False:
+if os.path.exists("help.txt") == False:
     initialise.create_helpfile()
 
 time.sleep(1)
