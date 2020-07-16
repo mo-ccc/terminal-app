@@ -51,17 +51,25 @@ input: """)
         newrow = ""
 
         if entry[0] == "right":
-            movement(1, 0, rows, x, y, mapname)
+            if movement(1, 0, rows, x, y, mapname) == 0:
+                break
 
         elif entry[0] == "left":
-            movement(-1, 0, rows, x, y, mapname)
+            if movement(-1, 0, rows, x, y, mapname) == 0:
+                break
 
         elif entry[0] == "down":
-            if movement(0, 1, rows, x, y, mapname) == 1:
+            d = movement(0, 1, rows, x, y, mapname)
+            if d == 0:
+                break
+            elif d == 1:
                 return 1
 
         elif entry[0] == "up":
-            if movement(0, -1, rows, x, y, mapname) == 1:
+            d = movement(0, -1, rows, x, y, mapname)
+            if d == 0:
+                break
+            elif d == 1:
                 return 1
 
         elif entry[0] == "inventory":
