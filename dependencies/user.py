@@ -10,6 +10,22 @@ def inventorycheck():
     elif os.path.exists("./sav/key.json") == False and "key" in inventory:
         inventory.remove("key")
 
+def interactfunc():
+    adjacents = fetch.getadjacents(mapname)
+    if "k" in adjacents:
+        rows[y] = rows[y].replace("k", ".")
+        key = open("./sav/key.json", "w")
+        print("\n********key obtained*********\n")
+        fetch.writetomap(mapname, rows)
+    if ("0" in adjacents) and (os.path.exists("./sav/key.json") == True):
+        print("you win. thanks for playing")
+        time.sleep(1)
+        print("\a")
+        time.sleep(1)
+        return 0
+    elif ("0" in adjacents) and (os.path.exists("./sav/key.json") == False):
+        print("looks like some kind of key goes in here")
+
 def map_print(mapname):
     if mapname == "./sav/main.txt":
         fetch.fromcoord(fetch.searchcharacter(mapname)[0], fetch.searchcharacter(mapname)[1])
@@ -77,20 +93,10 @@ input: """)
             break
 
         elif entry[0] == "interact":
-            adjacents = fetch.getadjacents(mapname)
-            if "k" in adjacents:
-                rows[y] = rows[y].replace("k", ".")
-                key = open("./sav/key.json", "w")
-                print("key obtained")
-                fetch.writetomap(mapname, rows)
-            if ("0" in adjacents) and (os.path.exists("./sav/key.json") == True):
-                print("you win. thanks for playing")
-                print("\a")
-                time.sleep(1)
+            if interactfunc() == 0:
                 return 0
-            elif ("0" in adjacents) and (os.path.exists("./sav/key.json") == False):
-                print("looks like some kind of key goes in here")
             break
+
         elif entry[0] == "quit":
             return 0
         else:
