@@ -10,22 +10,6 @@ def inventorycheck():
     elif os.path.exists("./sav/key.json") == False and "key" in inventory:
         inventory.remove("key")
 
-def interactfunc():
-    adjacents = fetch.getadjacents(mapname)
-    if "k" in adjacents:
-        rows[y] = rows[y].replace("k", ".")
-        key = open("./sav/key.json", "w")
-        print("\n********key obtained*********\n")
-        fetch.writetomap(mapname, rows)
-    if ("0" in adjacents) and (os.path.exists("./sav/key.json") == True):
-        print("you win. thanks for playing")
-        time.sleep(1)
-        print("\a")
-        time.sleep(1)
-        return 0
-    elif ("0" in adjacents) and (os.path.exists("./sav/key.json") == False):
-        print("looks like some kind of key goes in here")
-
 def map_print(mapname):
     if mapname == "./sav/main.txt":
         fetch.fromcoord(fetch.searchcharacter(mapname)[0], fetch.searchcharacter(mapname)[1])
@@ -33,8 +17,6 @@ def map_print(mapname):
         rows = fetch.getmap("./sav/cave.txt")
         for line in rows:
             print(line[:len(line)-1])
-
-
 
 def movement(horizontal, vertical, rows, x, y, mapname):
     newrow = ""
@@ -47,6 +29,23 @@ def movement(horizontal, vertical, rows, x, y, mapname):
         return 1
     else:
         return 0
+
+def interactfunc():
+    adjacents = fetch.getadjacents(mapname)
+    if "k" in adjacents:
+        for y in rows:
+            rows[y] = rows[y].replace("k", ".")
+        key = open("./sav/key.json", "w")
+        print("\n********key obtained*********\n")
+        fetch.writetomap(mapname, rows)
+    if ("0" in adjacents) and (os.path.exists("./sav/key.json") == True):
+        print("you win. thanks for playing")
+        time.sleep(1)
+        print("\a")
+        time.sleep(1)
+        return 0
+    elif ("0" in adjacents) and (os.path.exists("./sav/key.json") == False):
+        print("looks like some kind of key goes in here")
 
 def userinput(mapname):
     inventorycheck()
