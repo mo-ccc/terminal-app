@@ -4,17 +4,37 @@ import time
 
 inventory = []
 
-def userinput(mapname):
+def inventorycheck():
     if os.path.exists("./sav/key.json") and "key" not in inventory:
         inventory.append("key")
     elif os.path.exists("./sav/key.json") == False and "key" in inventory:
         inventory.remove("key")
+
+def map_print(mapname):
     if mapname == "./sav/main.txt":
         fetch.fromcoord(fetch.searchcharacter(mapname)[0], fetch.searchcharacter(mapname)[1])
     else:
         rows = fetch.getmap("./sav/cave.txt")
         for line in rows:
             print(line[:len(line)-1])
+
+
+
+def movement(horizontal, vertical, rows, x, y, mapname):
+    newrow = ""
+    if rows[y + vertical][x + horizontal] == ".":
+                rows[y] = rows[y].replace("*", ".")
+                newrow += rows[y+vertical][:x+horizontal] + "*" + rows[y+vertical][x+1+horizontal:]
+                rows[y+vertical] = newrow
+                fetch.writetomap(mapname, rows)
+    elif rows[y + vertical][x + horizontal] == "~":
+        return 1
+    else:
+        return 0
+
+def userinput(mapname):
+    inventorycheck()
+    map_print(mapname)
 
     entry = input("""enter 'h' to bring up help
 input: """)
@@ -31,47 +51,23 @@ input: """)
         newrow = ""
 
         if entry[0] == "right":
-            if rows[y][x + 1] == ".":
-                rows[y] = rows[y].replace("*", ".")
-                newrow += rows[y][:x+1] + "*" + rows[y][x+2:]
-                rows[y] = newrow
-                fetch.writetomap(mapname, rows)
-            else:
-                break
+            movement(1, 0, rows, x, y, mapname)
 
         elif entry[0] == "left":
-            if rows[y][x - 1] == ".":
-                rows[y] = rows[y].replace("*", ".")
-                newrow += rows[y][:x-1] + "*" + rows[y][x:]
-                rows[y] = newrow
-                fetch.writetomap(mapname, rows)
-            else:
-                break
+            movement(-1, 0, rows, x, y, mapname)
 
         elif entry[0] == "down":
-            if rows[y + 1][x] == ".":
-                rows[y] = rows[y].replace("*", ".")
-                newrow += rows[y+1][:x] + "*" + rows[y+1][x+1:]
-                rows[y+1] = newrow
-                fetch.writetomap(mapname, rows)
-            elif rows[y+1][x] == "~":
+            if movement(0, 1, rows, x, y, mapname) == 1:
                 return 1
-            else:
-                break
 
         elif entry[0] == "up":
-            if rows[y - 1][x] == ".":
-                rows[y] = rows[y].replace("*", ".")
-                newrow += rows[y-1][:x] + "*" + rows[y-1][x+1:]
-                rows[y-1] = newrow
-                fetch.writetomap(mapname, rows)
-            elif rows[y-1][x] == "~":
+            if movement(0, -1, rows, x, y, mapname) == 1:
                 return 1
-            else:
-                break
+
         elif entry[0] == "inventory":
             print(inventory)
             break
+
         elif entry[0] == "interact":
             adjacents = fetch.getadjacents(mapname)
             if "k" in adjacents:

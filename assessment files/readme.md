@@ -65,3 +65,7 @@ by conditional statements
 - When errors occur the application will quit and give the user an error code that gives a brief explanation as
 to what occurred. 
 
+###### implementation plan
+
+
+
