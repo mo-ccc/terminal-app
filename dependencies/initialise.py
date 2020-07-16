@@ -48,4 +48,9 @@ def create_save():
 
 def create_helpfile():
     helpf = open("help.txt", "w")
-    helpf.write("""""")
+    helpf.write("""Hello.
+Enter the movement commands: left, right, up and down for movement.
+Add a number after a movement command to move multiple steps at once.
+e.g. right 5
+Enter the command "interact" to interact with any unusual objects. hint hint: letters""")
+    helpf.close()
