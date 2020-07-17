@@ -113,6 +113,7 @@ input: """)
                 initialise.create_main()
                 initialise.create_save()
                 initialise.create_cave()
+                initialise.create_helpfile()
                 time.sleep(1)
                 break
             else:

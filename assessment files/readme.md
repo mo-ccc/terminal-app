@@ -6,8 +6,6 @@ The game takes inspiration from the legend of zelda as well as pokemon however w
 the audience with a unique experience.
 As python is limited in inputs the user will type out full commands to move the character rather than
 short button presses. e.g. "Move Left".
-The user will also select from multiple choice options where their
-decisions will have an impact on the outcome of the game.
 It aims to provide users with a brief form of entertainment to temporarily relieve stress and boredom.
 The application serves as a prototype to demonstrate how a fully fleshed out game could be made to run within terminal.
 Because of this the target audience is anyone who is interested enough to invest time into playing the game.
@@ -47,6 +45,11 @@ all adjacent spaces executing conditional statements for each one
 - When the user types in "help" into the terminal a list of acceptable commands will be generated with descriptions
 on what each command does. This will also be written into a text file that the user can read in a text editor
 
+###### initialization of files and management
+- When save data is missing the application will create the save files that the user requires
+- The application should be fully capable of running with just the python modules
+- The user can input a command such as "reset" to reinitialise the application
+
 ###### word on variable scope
 All relevant variables will be retained within the defined functions. When data is requested from the save file they are
 loaded into the function as required which returns an outcome that another function can act on.
@@ -65,7 +68,7 @@ by conditional statements
 - When errors occur the application will quit and give the user an error code that gives a brief explanation as
 to what occurred. 
 
-###### implementation plan
+#### implementation plan
 I plan to implement the application in stages. I will be using a check list on trello to help me manage
 my work. It is important that I first build a prototype map so that I know exactly what I am working with.
 Following that I will begin working on the map loading and saving functions as they are at the core of
@@ -84,7 +87,6 @@ will wrap up player movement by introducing multimovement.
 The third stage prioritizes the minor details such as win conditions, inventory and user help.
 I will first implement the inventory system as the win condition can only be triggered by the inventory.
 I will create user inputs for all the functions and finally create a helpfile.
-
 
 Moving on to the fourth stage I implement the proper hierarchial structure separating the application into modules 
 and begin building the basis for the initialization. The application should create the data for the app to work 
