@@ -104,6 +104,8 @@ input: """)
             helpfile = open("help.txt", "r")
             print(helpfile.read())
             helpfile.close()
+            input("\npress enter to continue")
+            break
 
         elif entry[0] == "restart":
             if input("are you sure? y/n\n") == "y":
