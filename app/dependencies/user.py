@@ -114,6 +114,8 @@ input: """)
                 initialise.create_save()
                 initialise.create_cave()
                 initialise.create_helpfile()
+                if os.path.exists("./sav/key.json"):
+                    os.remove("./sav/key.json")
                 time.sleep(1)
                 break
             else:
