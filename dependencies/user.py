@@ -30,10 +30,10 @@ def movement(horizontal, vertical, rows, x, y, mapname):
     else:
         return 0
 
-def interactfunc():
+def interactfunc(mapname, rows):
     adjacents = fetch.getadjacents(mapname)
     if "k" in adjacents:
-        for y in rows:
+        for y in range(len(rows)):
             rows[y] = rows[y].replace("k", ".")
         key = open("./sav/key.json", "w")
         print("\n********key obtained*********\n")
@@ -92,7 +92,7 @@ input: """)
             break
 
         elif entry[0] == "interact":
-            if interactfunc() == 0:
+            if interactfunc(mapname, rows) == 0:
                 return 0
             break
 

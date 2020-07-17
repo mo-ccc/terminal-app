@@ -66,6 +66,27 @@ by conditional statements
 to what occurred. 
 
 ###### implementation plan
+I plan to implement the application in stages. I will be using a check list on trello to help me manage
+my work. It is important that I first build a prototype map so that I know exactly what I am working with.
+Following that I will begin working on the map loading and saving functions as they are at the core of
+the application.
+I need to be able to write to and retrieve a map from a file that will persist as long as it is not deleted 
+from the hard drive.
+
+Moving on to the second stage I will need to program the ability for the program to locate the player then use
+the fetch function from the first stage to create a viewport centered around the position of the player.
+As soon as that is complete I can begin to implement movement of the player.
+I will allow user input during this stage to make integration seamless. It's important that it's carried 
+out in this order as I can test the application while I am building it.
+After getting the basic player movement down I plan to implement conditional statements for collision and 
+will wrap up player movement by introducing multimovement.
+
+The third stage prioritizes the minor details such as win conditions, inventory and user help.
+I will first implement the inventory system as the win condition can only be triggered by the inventory.
+I will create user inputs for all the functions and finally create a helpfile.
 
 
+Moving on to the fourth stage I implement the proper hierarchial structure separating the application into modules 
+and begin building the basis for the initialization. The application should create the data for the app to work 
+with when it is first run.
 
