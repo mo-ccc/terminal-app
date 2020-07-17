@@ -13,12 +13,12 @@ if os.path.exists("./sav/cave.txt") == False:
     initialise.create_cave()
 if os.path.exists("./sav/main.txt") == False:
     initialise.create_main()
+    if os.path.exists("./sav/key.json") == True:
+        os.remove("./sav/savedata.json")
 if os.path.exists("./sav/savedata.json") == False:
     initialise.create_save()
 if os.path.exists("help.txt") == False:
     initialise.create_helpfile()
-if os.path.exists("./sav/key.json") == True:
-    os.remove("./sav/savedata.json")
 
 time.sleep(1)
 print("welcome to the game")
