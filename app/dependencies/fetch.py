@@ -13,10 +13,10 @@ def writetomap(mapname, rows):
 
 def fromcoord(row, column):
     rows = getmap("./sav/main.txt")
-    hslice1 = column - 10
-    hslice2 = column + 11
-    vslice1 = row - 3
-    vslice2 = row + 4
+    hslice1 = column - 15
+    hslice2 = column + 16
+    vslice1 = row - 4
+    vslice2 = row + 5
     for x in range(vslice1, vslice2):
         print(rows[x][hslice1:hslice2])
 
