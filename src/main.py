@@ -1,3 +1,5 @@
+#!/usr/sbin/python
+
 import dependencies.user as user
 import dependencies.initialise as initialise
 import dependencies.fetch as fetch

@@ -55,6 +55,8 @@ All relevant variables will be retained within the defined functions. When data 
 loaded into the function as required which returns an outcome that another function can act on.
 As I have not learned of global variables I will not be using them in this task.
 
+![flowchart](/docs/flowchart.png)
+
 #### user interaction and experience
 - When the application begins the user will have the option of submitting the keyword "help" to the console
 to print out a list of commands that they user can use and a description of what each command does.
@@ -131,3 +133,11 @@ Finish above by end of third day
     Test application extensively
 Finish above by due date
 
+### screenshots
+![initial](/docs/trello1.png)
+
+![first-day](/docs/trello2.png)
+
+![second-day](/docs/trello1.png)
+
+![last-day](/docs/trello2.png)
