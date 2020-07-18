@@ -1,4 +1,4 @@
-#### first status report
+#### first status report - 14/07/20
 When creating the movement function I encountered an overflow error as the view port neared the
 edges of the map. I predicted this error during the planning phase of my application and
 at the time I decided I would remedy the situation by making it so that the viewport would
@@ -9,7 +9,7 @@ Instead I decided to pad out the edges of the map with extra characters that way
 aren't reachable by the player. Upon testing I can conclude that this worked perfectly
 and the implementation was much less of a headache than attempting to add new flow control statements.
 
-#### last status report
+#### last status report - 15/07/20
 As I wrap up my project I find that my code has become extremely messy and difficult to update. Changing one
 thing results in several other things being broken forcing me to look for ways to completely rewrite
 the code in a more efficient manner.

@@ -66,29 +66,29 @@ input: """)
         x = fetch.searchcharacter(mapname)[1]
         newrow = ""
 
-        if entry[0] == "right":
+        if entry[0] == "right" or entry[0] == "r":
             if movement(1, 0, rows, x, y, mapname) == 0:
                 break
 
-        elif entry[0] == "left":
+        elif entry[0] == "left" or entry[0] == "l":
             if movement(-1, 0, rows, x, y, mapname) == 0:
                 break
 
-        elif entry[0] == "down":
+        elif entry[0] == "down" or entry[0] == "d":
             d = movement(0, 1, rows, x, y, mapname)
             if d == 0:
                 break
             elif d == 1:
                 return 1
 
-        elif entry[0] == "up":
+        elif entry[0] == "up" or entry[0] == "u":
             d = movement(0, -1, rows, x, y, mapname)
             if d == 0:
                 break
             elif d == 1:
                 return 1
 
-        elif entry[0] == "inventory":
+        elif entry[0] == ("inventory"):
             print(inventory)
             break
 

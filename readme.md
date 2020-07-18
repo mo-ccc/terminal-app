@@ -92,3 +92,42 @@ Moving on to the fourth stage I implement the proper hierarchial structure separ
 and begin building the basis for the initialization. The application should create the data for the app to work 
 with when it is first run.
 
+* Map loading and State saving
+    Create prototype map in txt file
+    Write code to pull map from txt file and print to console
+    Write code to locate “*” on map
+    Create code to generate viewport around “*” and print to console
+    Create a function which writes an array containing strings to map file
+    Create second map file and refine first
+    Create a variable which holds the current maps directory
+    Create a module that handles generating the map files from python strings and creates a save file defining which map is the current map which is read from and written to the current map variable
+Finish above by end of first day
+
+* Movement
+    Incorporate movement in one direction. Writing to the map file the new position of the asterix, removing the old position of the asterix from the file and overwriting what was previously in the new position
+    Incorporate movement in all directions
+    Use conditional statements to check what the spot the asterix will move to currently holds
+    Limit movement only to spaces which are occupied by a “.”
+    Implement the ability for multiple moves to be made at once
+    Allocate a string character such as “~”,”_” or “^” that when the character moves over switches the current map variable from one file to the other map file
+    Use the map loading function to load the current viewport after every move
+Finish above by end of second day
+
+* Inventory, Interaction and Help file
+    Introduce an inventory variable as a list
+    Define a function which fetches what is contained in each adjacent space using a loop and stores the values in a list
+    Define a function which uses a for loop to check the list for particular characters
+    Create an if statement that runs on the for loop to check if there is a “k” character within the list. If it is present remove “k” from the map and create a key file
+    Create an if statement that runs on the for loop to check if there is a “0” character within the list and the key file exists. If true end the game and go to victory screen
+    Else if key file does not exist print a hint to the user explaining that a key is required for the interaction
+    Use a while loop to run a inventory check on every turn which appends “key” to the inventory list if key file exists
+    Write a function to print the inventory list to the console
+Finish above by end of third day
+
+* Initialisation and testing
+    Separate into modules and functions
+    Create initialisations for all files
+    Create reset command
+    Test application extensively
+Finish above by due date
+
