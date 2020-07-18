@@ -1,7 +1,7 @@
 import json
 
 def create_main():
-    main = open("./sav/main.txt", "w")
+    main = open("sav/main.txt", "w")
     main.write(r"""\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -32,7 +32,7 @@ def create_main():
     main.close()
 
 def create_cave():
-    cave = open("./sav/cave.txt", "w")
+    cave = open("sav/cave.txt", "w")
     cave.write(r"""\\\\\\\\\\\\\\\\\
 \\\.....0.....\\\
 \\\...........\\\
@@ -42,8 +42,8 @@ def create_cave():
     cave.close()
 
 def create_save():
-    initialdata = {"current_map": "./sav/main.txt"}
-    save = open("./sav/savedata.json", "w")
+    initialdata = {"current_map": "sav/main.txt"}
+    save = open("sav/savedata.json", "w")
     intemediaryj = json.dumps(initialdata)
     save.write(intemediaryj)
 
@@ -54,5 +54,6 @@ def create_helpfile():
     Enter the movement commands: left, right, up and down for movement.
     Add a number after a movement command to move multiple steps at once.
     e.g. right 5
-    Enter the command "interact" to interact with any unusual objects. hint hint: letters""")
+    Enter the command "interact" to interact with any unusual objects. hint hint: letters
+    Enter "reset" to clear save data and restart.""")
     helpf.close()

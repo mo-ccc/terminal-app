@@ -4,3 +4,4 @@
     Add a number after a movement command to move multiple steps at once.
     e.g. right 5
     Enter the command "interact" to interact with any unusual objects. hint hint: letters
+    Enter "reset" to clear save data and restart.

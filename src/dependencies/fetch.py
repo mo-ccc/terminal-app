@@ -12,7 +12,7 @@ def writetomap(mapname, rows):
     mapf.close()
 
 def fromcoord(row, column):
-    rows = getmap("./sav/main.txt")
+    rows = getmap("sav/main.txt")
     hslice1 = column - 15
     hslice2 = column + 16
     vslice1 = row - 4

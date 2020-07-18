@@ -6,16 +6,16 @@ import dependencies.initialise as initialise
 inventory = []
 
 def inventorycheck():
-    if os.path.exists("./sav/key.json") and "key" not in inventory:
+    if os.path.exists("sav/key.json") and "key" not in inventory:
         inventory.append("key")
-    elif os.path.exists("./sav/key.json") == False and "key" in inventory:
+    elif os.path.exists("sav/key.json") == False and "key" in inventory:
         inventory.remove("key")
 
 def map_print(mapname):
-    if mapname == "./sav/main.txt":
+    if mapname == "sav/main.txt":
         fetch.fromcoord(fetch.searchcharacter(mapname)[0], fetch.searchcharacter(mapname)[1])
     else:
-        rows = fetch.getmap("./sav/cave.txt")
+        rows = fetch.getmap("sav/cave.txt")
         for line in rows:
             print(line[:len(line)-1])
 
@@ -36,23 +36,23 @@ def interactfunc(mapname, rows):
     if "k" in adjacents:
         for y in range(len(rows)):
             rows[y] = rows[y].replace("k", ".")
-        key = open("./sav/key.json", "w")
+        key = open("sav/key.json", "w")
         print("\n********key obtained*********\n")
         fetch.writetomap(mapname, rows)
-    if ("0" in adjacents) and (os.path.exists("./sav/key.json") == True):
+    if ("0" in adjacents) and (os.path.exists("sav/key.json") == True):
         print("you win. thanks for playing")
         time.sleep(1)
         print("\a")
         time.sleep(1)
         return 0
-    elif ("0" in adjacents) and (os.path.exists("./sav/key.json") == False):
+    elif ("0" in adjacents) and (os.path.exists("sav/key.json") == False):
         print("looks like some kind of key goes in here")
 
 def userinput(mapname):
     inventorycheck()
     map_print(mapname)
 
-    entry = input("""enter 'h' to bring up help
+    entry = input("""enter 'help' to bring up help
 input: """)
     entry = entry.split()
     if len(entry) < 1:
@@ -114,8 +114,8 @@ input: """)
                 initialise.create_save()
                 initialise.create_cave()
                 initialise.create_helpfile()
-                if os.path.exists("./sav/key.json"):
-                    os.remove("./sav/key.json")
+                if os.path.exists("sav/key.json"):
+                    os.remove("sav/key.json")
                 time.sleep(1)
                 break
             else:
