@@ -31,7 +31,7 @@ elif "--clear" in sys.argv:
 elif "--all" in sys.argv:
     print(sys.argv)
 
-elif "--listargs":
+elif "--listargs" in sys.argv:
     print(["--help", "--clear", "--all", "--listargs"])
 
 #main application

@@ -105,6 +105,7 @@ with when it is first run.
     Create a module that handles generating the map files from python strings and creates a save file defining which map is the current map which is read from and written to the current map variable
 Finish above by end of first day
 
+#### checklists
 * Movement
     Incorporate movement in one direction. Writing to the map file the new position of the asterix, removing the old position of the asterix from the file and overwriting what was previously in the new position
     Incorporate movement in all directions
@@ -138,6 +139,8 @@ Finish above by due date
 
 ![first-day](/docs/trello2.png)
 
-![second-day](/docs/trello1.png)
+![second-day](/docs/trello3.png)
 
-![last-day](/docs/trello2.png)
+![third-day](/docs/trello4.png)
+
+![last-day](/docs/trello5.png)
