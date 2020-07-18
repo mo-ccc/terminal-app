@@ -60,6 +60,11 @@ input: """)
     if len(entry) < 2:
         entry.append(1)
 
+    try:
+        entry[1] = int(entry[1])
+    except:
+        entry[1] = 0
+
     for _ in range(int(entry[1])):
         rows = fetch.getmap(mapname)
         y = fetch.searchcharacter(mapname)[0]
