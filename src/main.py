@@ -11,6 +11,7 @@ abspath = os.path.abspath(__file__)
 dirname = os.path.dirname(abspath)
 os.chdir(dirname)
 
+# Checks to see if save data is present and if not creates it
 if os.path.isdir("sav") == False:
     time.sleep(1)
     print("no save data found. creating...")
@@ -31,13 +32,17 @@ print("welcome to the game")
 time.sleep(1)
 
 while True:
+    #open save file and load it into current map variable
     sr = open("sav/savedata.json", "r")
     jreadsave = sr.read()
     sr.close()
     readsave = json.loads(jreadsave)
     current_map = readsave["current_map"]
-    perid = user.userinput(current_map)  
-    if perid == 1:
+
+    #running user input function
+    mainexecution = user.userinput(current_map)  
+    #if 1 is returned switch map
+    if mainexecution == 1:
         if current_map == "sav/main.txt":
             diction = {"current_map":"sav/cave.txt"}
             sw = open("sav/savedata.json", "w")
@@ -48,7 +53,8 @@ while True:
             sw = open("sav/savedata.json", "w")
             json.dump(diction, sw)
             sw.close()
-    elif perid == 0:
+    #if 0 is returned exit
+    elif mainexecution == 0:
         print("goodbye")
         break
         

@@ -1,3 +1,4 @@
+#places map file into list for manipulation
 def getmap(mapname):
     mapf = open(mapname, "r")
     rows = []
@@ -5,12 +6,14 @@ def getmap(mapname):
         rows.append(x)
     return rows
 
+#writes list into map file
 def writetomap(mapname, rows):
     mapf = open(mapname, "w")
     for x in rows:
         mapf.write(x)
     mapf.close()
 
+#prints slice of map from coordinates
 def fromcoord(row, column):
     rows = getmap("sav/main.txt")
     hslice1 = column - 15
@@ -20,6 +23,7 @@ def fromcoord(row, column):
     for x in range(vslice1, vslice2):
         print(rows[x][hslice1:hslice2])
 
+#returns coordinates of player. exception for rows not found in.
 def searchcharacter(mapname):
     rows = getmap(mapname)
     for x in range(0,len(rows)):
@@ -28,6 +32,7 @@ def searchcharacter(mapname):
         except:
             continue
 
+#loads values of all adjacent items into a list
 def getadjacents(mapname):
     x = searchcharacter(mapname)[1]
     y = searchcharacter(mapname)[0]
